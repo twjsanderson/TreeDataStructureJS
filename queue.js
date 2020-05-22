@@ -1,39 +1,53 @@
 /**
  * A Queue is a collection of entities that are maintained in a FIFO 
- * (First In First Out) data structure.
+ * (First In First Out) structure.
+ *
+ * This implementation of a queue in JavaScript involves creating a 
+ * class Object with various methods that simulate FIFO behaviour.
  */
-
-/**
- * Implement a queue with a JavaScript array 
- * Add to the queue: the .push() method
- * Remove from the queue: use the .shift() method
- */
-
-
 
 class Queue {
     constructor() {
         this.queue = [];
     }
 
-    add(item) {
+    // add an item to the queue (at the end)
+    enqueue(item) {
         this.queue.push(item);
     }
 
-    remove() {
+    // remove an item from the queue (from the start)
+    dequeue() {
         this.queue.shift();
+    }
+
+    // take a look at the first element of the queue
+    peek() {
+        return this.queue[0];
+    }
+
+    // view the entire queue
+    print() {
+        return this.queue;
     }
 }
 
-let thing = new Queue();
-thing.add(1)
-console.log(thing)
-thing.add(2)
-console.log(thing)
-thing.remove()
-console.log(thing)
+// Create new queue 
+const q1 = new Queue();
 
-// arr.push(4)
-// console.log(arr)
-// console.log(arr.shift())
-// console.log(arr)
+// add 3 new elements to the queue
+q1.enqueue(1);
+q1.enqueue(2);
+q1.enqueue(3);
+
+// see the whole queue 
+console.log(q1.print());
+
+// see the first element of the queue
+console.log(q1.peek());
+
+// remove the first element of the queue
+q1.dequeue();
+
+// see the whole queue
+console.log(q1.print())
