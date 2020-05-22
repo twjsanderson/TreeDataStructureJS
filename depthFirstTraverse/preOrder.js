@@ -1,28 +1,32 @@
-/** 
- * The Depth First Traverse of a binary tree involves moving to
- * every node as far as possible along a single branch,
- * before backtracking and exploring the next branch to its maximum depth.
+/**
+ * The Pre-Order Depth First Traverse simply logs each node value 
+ * starting from the root to the max depth of each branch.
+ * 
+ * Often used to create a copy of the tree.
+ * 
+ * 1. Visit the root of the tree
+ * 2. Traverse the left subtree
+ * 3. Traverse the right subtree
+ * 
+ * In these implementations we simply store the values in an array and
+ * return the final collection once the entire tree has been traversed. 
+ * 
  */
 
 /**
- * The 2 examples of depth first traverses below will explore an entire tree
- * and grab the value at each node mapping them to an array as they are found.   
- */
-
-/**
- * Iterative Depth First Traverse (DFT) 
+ * Iterative Pre-Order Depth First Traverse (DFT) 
  * Traversing as far as possible along each branch before backtracking. 
  * Implemented with a stack.
  * @param { Node } root
  * @return { number [] }
  */
-exports.iterativeDFT = (root) => {
+exports.iterativePreOrderDFT = (root) => {
     let stack = [root];
-    let res = [];
+    let result = [];
     
     while (stack.length) {      
         let curr = stack.pop();
-        res.push(curr.val);
+        result.push(curr.val);
       
         if (curr.right){
             stack.push(curr.right)
@@ -33,21 +37,21 @@ exports.iterativeDFT = (root) => {
         };
     };
 
-    return res;
+    return result;
 };
 
 /**
- * Recursive Depth First Traverse (DFT) 
+ * Recursive Pre-Order Depth First Traverse (DFT) 
  * Traversing as far as possible along each branch before backtracking. 
  * Implemented with a stack.
  * @param { Node } root
  * @return { number [] }
  */
-exports.recursiveDFT = (root) => {
+exports.recursivePreOrderDFT = (root) => {
     let stack = [root];
     let res = [];
     
-    const recursion = (stack) =>  { 
+    const recursiveSearch = (stack) =>  { 
 
         if (stack.length < 1) return res;
 
@@ -62,20 +66,11 @@ exports.recursiveDFT = (root) => {
             stack.push(curr.left)
         };
 
-        recursion(stack)
+        recursiveSearch(stack)
     };
 
-    recursion(stack);
+    recursiveSearch(stack);
     return res;
 };
 
 
-/**
- * Here are 3 common search implementations that move through
- * the nodes (or vertices) in different ways.
- * 
- * 1. Pre-Ordered Search.
- * 2. Post-Ordered Search.
- * 3. In-Order Search.
- * 
- */
