@@ -1,6 +1,7 @@
 const { binaryTree } = require("./constants");
 
-const { iterativeTraverseDFS } = require("./dfs");
+const { iterativeDFT, recursiveDFT } = require("./dfs");
+const { iterativeBFS } = require("./bfs");
 
 // Binary Tree
 //                    13
@@ -132,31 +133,7 @@ const inOrder = (root) => {
   return result;
 };
 
-/**
- * Breadth First Search Function 
- *  
- * @param {Node} root
- * @return {number[]}
- */
-function traverseBFS(root) {
-    let queue = [root];
-    let res = []
-    
-    while (queue.length) {
-      let curr = queue.shift()
-      res.push(curr.val)
-      
-      if (curr.right){
-        queue.push(curr.right)
-      }
-      
-      if (curr.left){
-        queue.push(curr.left)
-      }
-    }
-    
-    return res;
-  }
+
 
   // Initial tree
   //                    13
@@ -176,13 +153,17 @@ function traverseBFS(root) {
   // console.log('--------------------------------------')
 
   // [6, 8, 11, 12, 13, 16, 24, 29, 37, 42, 55]
-  // console.log('inOrder: ', inOrder(tree2))
-  // console.log('--------------------------------------')
+  console.log('inOrder: ', inOrder(binaryTree))
+  console.log('--------------------------------------')
 
-  // [13, 37,  8, 42, 24, 11,  6, 55, 29, 16, 12]
-  // console.log('traverseBFS: ', traverseBFS(tree2))
-  // console.log('--------------------------------------')
+  // [13, 37, 8, 42, 24, 11,  6, 55, 29, 16, 12]
+  console.log('Iterative BFS: ', iterativeBFS(binaryTree))
+  console.log('--------------------------------------')
 
   // [13, 8, 6, 11, 12, 37, 24, 16, 29, 42, 55]
-  console.log('Iterative Traverse DFS: ', iterativeTraverseDFS(binaryTree))
+  console.log('Iterative DFT: ', iterativeDFT(binaryTree))
+  console.log('--------------------------------------')
+
+  // [13, 8, 6, 11, 12, 37, 24, 16, 29, 42, 55]
+  console.log('Recursive DFT: ', recursiveDFT(binaryTree))
   console.log('--------------------------------------')
