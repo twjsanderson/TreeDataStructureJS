@@ -6,12 +6,6 @@
  * 
  */
 
- // push root object
- // push root object + 1
- // push root object + 1
-
- // at max depth push the val to the result
-
 /**
  * Iterative In-Order Depth First Traverse (DFT) 
  *  
@@ -51,13 +45,25 @@ exports.recursiveInOrderDFT = (root) => {
     let result = [];
     let pointerNode = root;
 
-    
-    const recursiveInOrderDFT = (stack) =>  { 
+    const DFT = () => {
+        if (stack.length !== 0 || pointerNode !== null) {
+            if (pointerNode !== null) {
+                stack.push(pointerNode);
+                pointerNode = pointerNode.left;
+                DFT()
+            } else {
+                pointerNode = stack.pop();
+                result.push(pointerNode.val);
+                pointerNode = pointerNode.right;
+                DFT()
+            }
+        }
+        return;
+    }
 
-        
-    };
+    DFT();
+    return result;
 
-    
 };
 
 
