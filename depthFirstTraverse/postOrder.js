@@ -59,12 +59,12 @@ exports.recursivePostOrderDFT = (root) => {
         let curr = stack.pop();
         result.unshift(curr.val);
       
-        if (curr.right){
-            stack.push(curr.right)
-        };
-      
         if (curr.left){
             stack.push(curr.left)
+        };
+        
+        if (curr.right){
+            stack.push(curr.right)
         };
 
         recursivePostOrderDFT(stack)

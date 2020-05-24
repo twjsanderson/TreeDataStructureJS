@@ -17,7 +17,7 @@
 
 /**
  * Binary Tree: A rooted tree data structure where each node 
- * has at most two children (a left and right child)
+ * has at most two children (left and right child)
  */
 
 /**
@@ -35,8 +35,8 @@
 
 /**
  * Unlike a linear data structure like an array or linked list, 
- * you can traverse a tree in either a Depth First or Breadth First
- * order.
+ * you can traverse a tree with either a Depth First or Breadth 
+ * First traverse.
  */
 
 /**
@@ -45,7 +45,7 @@
  * 
  * * ---------------------------------------------------------------------------
  * 
- * * Array Form - Populated with values using a Breadth First implementation
+ * * Array Form - Populated with values using a Breadth First Traverse
  * 
  * [13, 8, 37, 6, 11, 24, 42, 12, 16, 29, 55]
  * 
